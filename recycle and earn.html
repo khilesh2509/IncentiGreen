@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recycle and Earn</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e8f5e9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #388E3C;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 36px;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px;
+    }
+
+    .intro-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .intro-section h2 {
+      font-size: 30px;
+      color: #388E3C;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+
+    .intro-section p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .recycle-btn {
+      background-color: #388E3C;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 20px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .recycle-btn:hover {
+      background-color: #1b5e20;
+      transform: translateY(-5px);
+    }
+
+    .progress-section {
+      background-color: white;
+      width: 80%;
+      max-width: 1000px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .progress-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .progress-section h3 {
+      text-align: center;
+      font-size: 28px;
+      color: #388E3C;
+      margin-bottom: 20px;
+    }
+
+    .progress-details {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .progress-details div {
+      text-align: center;
+    }
+
+    .progress-details div p {
+      font-weight: bold;
+      color: #388E3C;
+    }
+
+    .rewards-section {
+      background-color: #f1f8e9;
+      width: 80%;
+      max-width: 1000px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .rewards-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .rewards-section h3 {
+      text-align: center;
+      font-size: 28px;
+      color: #388E3C;
+      margin-bottom: 20px;
+    }
+
+    .rewards-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .rewards-section ul li {
+      font-size: 18px;
+      color: #555;
+      margin: 10px 0;
+      transition: color 0.3s ease;
+    }
+
+    .rewards-section ul li:hover {
+      color: #1b5e20;
+    }
+
+    .action-btn {
+      display: block;
+      background-color: #388E3C;
+      color: white;
+      padding: 12px 30px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 18px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background-color: #1b5e20;
+      transform: translateY(-5px);
+    }
+
+    .footer {
+      background-color: #388E3C;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    /* New Section: What to Recycle */
+    .recycle-items-section {
+      background-color: white;
+      width: 80%;
+      max-width: 1000px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .recycle-items-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .recycle-items-section h3 {
+      text-align: center;
+      font-size: 28px;
+      color: #388E3C;
+      margin-bottom: 20px;
+    }
+
+    .recycle-items {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .recycle-items .item {
+      text-align: center;
+      width: 120px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .recycle-items .item:hover {
+      transform: translateY(-5px);
+    }
+
+    .recycle-items .item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .recycle-items .item:hover img {
+      transform: scale(1.1);
+    }
+
+    .recycle-items .item p {
+      font-size: 16px;
+      color: #388E3C;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    Recycle and Earn - Make a Green Difference
+  </header>
+
+  <div class="container">
+    <!-- Intro Section -->
+    <div class="intro-section">
+      <h2>Welcome to Recycle and Earn!</h2>
+      <p>Start recycling today to make a positive impact on the environment and earn exciting rewards.</p>
+      <button class="recycle-btn" onclick="startRecycling()">Start Recycling</button>
+    </div>
+
+    <!-- What to Recycle Section -->
+    <div class="recycle-items-section">
+      <h3>What Can You Recycle?</h3>
+      <div class="recycle-items">
+        <div class="item">
+          <img src="images/7.jpg" alt="Plastic">
+          <p>Plastic</p>
+        </div>
+        <div class="item">
+          <img src="images/6.jpg" alt="Paper">
+          <p>Paper</p>
+        </div>
+        <div class="item">
+          <img src="images/8.jpg" alt="Glass">
+          <p>Glass</p>
+        </div>
+        <div class="item">
+          <img src="https://via.placeholder.com/80?text=Metal" alt="Metal">
+          <p>Metal</p>
+        </div>
+        <div class="item">
+          <img src="https://via.placeholder.com/80?text=Electronics" alt="Electronics">
+          <p>Electronics</p>
+        </div>
+        <div class="item">
+          <img src="https://via.placeholder.com/80?text=Textiles" alt="Textiles">
+          <p>Textiles</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Section -->
+    <div class="progress-section">
+      <h3>Your Recycling Progress</h3>
+      <div class="progress-details">
+        <div>
+          <p>Total Recycled</p>
+          <p>15 kg</p>
+        </div>
+        <div>
+          <p>EcoPoints Earned</p>
+          <p>300</p>
+        </div>
+        <div>
+          <p>Badges Earned</p>
+          <p>3</p>
+        </div>
+      </div>
+      <a href="#" class="action-btn">View Your Full Progress</a>
+    </div>
+
+    <!-- Rewards Section -->
+    <div class="rewards-section">
+      <h3>Earn Rewards for Your Green Actions</h3>
+      <ul>
+        <li>EcoPoints to redeem for discounts and offers.</li>
+        <li>Badges for milestones like "Recycle 50kg".</li>
+        <li>Discount coupons for sustainable products.</li>
+        <li>Recognition as an Eco Champion.</li>
+      </ul>
+      <a href="#" class="action-btn">Explore Available Rewards</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Recycle and Earn. All rights reserved.</p>
+  </div>
+
+  <script>
+    function startRecycling() {
+      alert("Thank you for starting your recycling journey! Log your recycling activities to earn rewards.");
+    }
+  </script>
+
+</body>
+</html>
