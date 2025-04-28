@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IncentiGreen - Incentives</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0fdf4;
+      color: #2e2e2e;
+    }
+
+    header {
+      background-color: #00695c;
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      max-width: 60%;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo h1 {
+      font-size: 1.8em;
+      margin: 0;
+    }
+
+    .slogan {
+      width: 100%;
+      text-align: left;
+      margin-top: 5px;
+      font-style: italic;
+      font-size: 1em;
+      color: #e0f2f1;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #80cbc4;
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b2dfdb;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+
+    /* Incentives Section Styling */
+    #incentives {
+      background-color: #e0f2f1;
+    }
+
+    .incentive-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 240px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #00695c;
+    }
+
+    .card button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      border: none;
+      background-color: #00796b;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #004d40;
+    }
+
+    .points-display {
+      margin-top: 40px;
+      font-size: 1.2em;
+      color: #004d40;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="images/2.png" alt="IncentiGreen Logo" />
+      <h1>IncentiGreen</h1>
+    </div>
+    <p class="slogan">"Save Forests. Score Rewards. Change the Game."</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="incentive.html">Incentives</a>
+      <a href="green action.html">Green Actions</a>
+      <a href="community and events.html">Community & Event</a>
+      <a href="join.html">Join</a>
+    </nav>
+  </header>
+
+  <section class="section" id="incentives">
+    <h2>Eco Rewards You’ll Love</h2>
+    <p>Complete green actions and earn points to redeem amazing rewards.</p>
+
+    <div class="incentive-grid">
+      <div class="card">
+        <h3>🌿 Gift Cards</h3>
+        <p>Get rewards from eco-friendly brands and local shops.</p>
+        <button onclick="earnPoints(10)">Earn 10 Points</button>
+      </div>
+
+      <div class="card">
+        <h3>🌎 Plant Trees</h3>
+        <p>Use your points to support reforestation efforts worldwide.</p>
+        <button onclick="earnPoints(20)">Earn 20 Points</button>
+      </div>
+      <div class="card">
+        <h3>🏞️ Event Tickets</h3>
+        <p>Attend eco workshops and community clean-up events.</p>
+        <button onclick="earnPoints(8)">Earn 8 Points</button>
+      </div>
+      <div class="card">
+        <h3>🛍️ Eco Swag</h3>
+        <p>Redeem tote bags, bottles, and other green goodies.</p>
+        <button onclick="earnPoints(12)">Earn 12 Points</button>
+      </div>
+    </div>
+
+    <div class="points-display">
+      🌟 Total Points Earned: <span id="points">0</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 IncentiGreen. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let totalPoints = 0;
+
+    function earnPoints(points) {
+      totalPoints += points;
+      document.getElementById('points').innerText = totalPoints;
+    }
+  </script>
+</body>
+</html>
